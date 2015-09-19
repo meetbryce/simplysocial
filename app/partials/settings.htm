@@ -1,0 +1,155 @@
+<main>
+    <div class="container-narrow">
+        <h1>Settings</h1>
+
+        <h4 class="caps">Account</h4>
+
+        <form action="/" ng-submit="saveSettings($event)">
+
+            <div class="account-settings">
+                <div class="avatar-settings">
+                    <img ng-src="{{ data.userSettings.avatar }}" class="avatar" width="85" height="85" alt="{{data.userSettings.name}}" />
+                    <a href="javascript:void(0);" class="btn btn-muted btn-block">change</a>
+                </div>
+
+                <div class="form-field">
+                    <label for="user-name" class="sr-only">Your name</label>
+                    <span class="user-name">
+                        <input type="text" class="stdin" id="user-name" placeholder="Your name" ng-model="data.userSettings.name" />
+                    </span>
+                </div>
+
+                <div class="form-field">
+                    <label for="user-email" class="sr-only">Your email address</label>
+                    <span class="user-email">
+                        <input type="text" class="stdin" id="user-email" placeholder="Your email address" ng-model="data.userSettings.email" />
+                    </span>
+                </div>
+
+                <div class="form-field">
+                    <label for="user-password" class="sr-only">Your password</label>
+                    <span class="user-password">
+                        <input type="password" class="stdin" id="user-password" placeholder="Your password" ng-value="passwordValue(data.userSettings.password)" disabled/>
+                        <a href="javascript:void(0);">change</a>
+                    </span>
+                </div>
+
+            </div>
+
+
+            <hr />
+
+            <h4 class="caps">Notifications</h4>
+
+            <p>
+                <span class="switch-wrapper">
+                    <span class="switch">
+                        <input type="checkbox" name="switch" class="switch-checkbox" id="favorites-email" ng-model="data.userSettings.notifications[0]">
+                        <label class="switch-label" for="favorites-email"> <span class="switch-inner"></span>
+                            <span class="switch-switch"></span> </label>
+                    </span>
+                    <label for="favorites-email">email me when my posts are favorited</label>
+                </span>
+            </p>
+
+            <p>
+                <span class="switch-wrapper">
+                    <span class="switch">
+                        <input type="checkbox" name="switch" class="switch-checkbox" id="mentions-email" ng-model="data.userSettings.notifications[1]">
+                        <label class="switch-label" for="mentions-email"> <span class="switch-inner"></span>
+                            <span class="switch-switch"></span> </label>
+                    </span>
+                    <label for="mentions-email">email me when I get mentioned</label>
+                </span>
+            </p>
+
+            <p>
+                <span class="switch-wrapper">
+                    <span class="switch">
+                        <input type="checkbox" name="switch" class="switch-checkbox" id="replies-email" ng-model="data.userSettings.notifications[2]">
+                        <label class="switch-label" for="replies-email"> <span class="switch-inner"></span>
+                            <span class="switch-switch"></span> </label>
+                    </span>
+                    <label for="replies-email">email me when I get a reply</label>
+                </span>
+            </p>
+
+            <p>
+                <span class="switch-wrapper">
+                    <span class="switch">
+                        <input type="checkbox" name="switch" class="switch-checkbox" id="follows-email" ng-model="data.userSettings.notifications[3]">
+                        <label class="switch-label" for="follows-email"> <span class="switch-inner"></span>
+                            <span class="switch-switch"></span> </label>
+                    </span>
+                    <label for="follows-email">email me when someone follows me</label>
+                </span>
+            </p>
+
+            <hr />
+
+            <h4 class="caps">Privacy</h4>
+
+            <div class="radio-group">
+                <div class="radio-wrapper">
+                    <span class="radio">
+                        <input type="radio" class="input-radio" name="tagging-privacy" id="tagging-anyone" value="anyone" ng-model="data.userSettings.taggingPrivacy" />
+                        <label for="tagging-anyone" class="radio-label"><span class="radio-token"></span></label>
+                    </span>
+                    <label for="tagging-anyone">allow anyone to tag me</label>
+                </div>
+
+                <div class="radio-wrapper">
+                    <span class="radio">
+                        <input type="radio" class="input-radio" name="tagging-privacy" id="tagging-friends" value="friends" ng-model="data.userSettings.taggingPrivacy" />
+                        <label for="tagging-friends" class="radio-label"> <span class="radio-token"></span> </label>
+                    </span>
+                    <label for="tagging-friends">only allow people I follow to tag me</label>
+                </div>
+
+                <div class="radio-wrapper">
+                    <span class="radio">
+                        <input type="radio" class="input-radio" name="tagging-privacy" id="tagging-none" value="none" ng-model="data.userSettings.taggingPrivacy" />
+                        <label for="tagging-none" class="radio-label"> <span class="radio-token"></span> </label>
+                    </span>
+                    <label for="tagging-none">don't allow anyone to tag me</label>
+                </div>
+            </div>
+
+            <div class="radio-group">
+                <div class="radio-wrapper">
+                    <span class="radio">
+                        <input type="radio" class="input-radio" name="location-privacy" id="location-privacy" value="allow" ng-model="data.userSettings.locationPrivacy" />
+                        <label for="location-privacy" class="radio-label"> <span class="radio-token"></span> </label>
+                    </span>
+                    <label for="location-privacy">add a location to my posts</label>
+                </div>
+            </div>
+
+            <div class="radio-group">
+                <div class="radio-wrapper">
+                    <span class="radio">
+                        <input type="radio" class="input-radio" name="email-privacy" id="email-privacy" value="allow" ng-model="data.userSettings.emailPrivacy" />
+                        <label for="email-privacy" class="radio-label"> <span class="radio-token"></span> </label>
+                    </span>
+                    <label for="email-privacy">let other find me by my email address</label>
+                </div>
+            </div>
+
+            <div class="radio-group">
+                <div class="radio-wrapper">
+                    <span class="radio">
+                        <input type="radio" class="input-radio" name="ad-privacy" id="ad-privacy" value="allow" ng-model="data.userSettings.adPrivacy" />
+                        <label for="ad-privacy" class="radio-label"> <span class="radio-token"></span> </label>
+                    </span>
+                    <label for="ad-privacy">tailor ads based on information</label>
+                </div>
+            </div>
+
+            <hr />
+            <p class="small" ng-repeat="notice in notices"><span ng-class="notice.class">{{ notice.text }}</span></p>
+            <p>
+                <button type="submit" class="btn btn-success">Save Changes</button>
+            </p>
+        </form>
+    </div>
+</main>

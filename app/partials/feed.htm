@@ -1,0 +1,49 @@
+<header>
+    <div class="post-box-wrapper">
+        <div class="post-box-inner-wrapper">
+            <div class="post-box" ng-controller="postBoxController">
+                <form name="postBox" method="post" ng-submit="submitPost()">
+                    <label for="post-text" class="sr-only">What's on your mind?</label>
+                    <input type="text" name="p" ng-model="post" id="post-text" class="post-box-input" placeholder="What's on your mind?" autofocus />
+
+                    <p>
+                        <button type="button" class="btn btn-subtle">
+                            <span class="add-photo white"></span>Add Photo
+                        </button>
+                        <button type="button" class="btn btn-subtle">
+                            <span class="add-video white"></span>Add Video
+                        </button>
+                        <button type="submit" class="btn btn-ghost strong pull-right" ng-if="post.length > 0">Post</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-narrow">
+        <nav class="pull-right">
+            <ul class="list-inline">
+                <li><a href="#" class="active"><span class="list-layout"></span></a></li>
+                <li><a href="#tile"><span class="tile-layout"></span></a></li>
+            </ul>
+        </nav>
+        <nav class="feed-menu caps">
+            <ul class="list-inline strong">
+                <li><a ng-class="{active: isFilterActive('all')}" href="/#/">All Posts</a></li>
+                <li><a ng-class="{active: isFilterActive('photos')}" href="#/feed/photos">Photos</a></li>
+                <li><a ng-class="{active: isFilterActive('videos')}" href="#/feed/videos">Videos</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container-narrow">
+        <div class="posts">
+            <ss-post ng-repeat="post in data.posts | filter: { type: filter }" info="post"></ss-post>
+            <p class="text-center" ng-show="!data.posts.length">Loading...</p>
+
+            <p class="text-center load-more"><a href="#" class="caps">Load More</a></p>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,132 @@
+.btn-new-message {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  width: 31px;
+  height: 26px;
+  @include img-retina('../img/new-message.png', '../img/new-message@2x.png', 31px, 26px);
+}
+
+.tile-layout {
+  position: relative;
+  display: inline-block;
+  top: -2px;
+  width: 9px;
+  height: 9px;
+  @include img-retina('../img/tile-layout.png', '../img/tile-layout@2x.png', 9px, 9px);
+}
+
+.list-layout {
+  position: relative;
+  display: inline-block;
+  top: -2px;
+  width: 9px;
+  height: 9px;
+  margin-right: 15px;
+  @include img-retina('../img/list-layout-active.png', '../img/list-layout-active@2x.png', 9px, 9px);
+}
+
+.add-photo {
+  position: relative;
+  display: inline-block;
+  top: 1px;
+  width: 18px;
+  height: 13px;
+  margin-right: 9px;
+  @include img-retina('../img/add-photo.png', '../img/add-photo@2x.png', 18px, 13px);
+  &.white {
+    background-size: 18px 13px;
+    @include img-retina('../img/add-photo-white.png', '../img/add-photo-white@2x.png', 18px, 13px);
+  }
+}
+
+.add-video {
+  position: relative;
+  display: inline-block;
+  top: 1px;
+  width: 18px;
+  height: 13px;
+  margin-right: 9px;
+  @include img-retina('../img/add-video.png', '../img/add-video@2x.png', 18px, 13px);
+  &.white {
+    @include img-retina('../img/add-video-white.png', '../img/add-video-white@2x.png', 18px, 13px);
+  }
+}
+
+.reply-btn {
+  position: relative;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  @include img-retina('../img/reply-btn.png', '../img/reply-btn@2x.png', 13px, 13px);
+}
+
+.like-btn {
+  position: relative;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  @include img-retina('../img/like-btn.png', '../img/like-btn@2x.png', 13px, 13px);
+}
+
+.user-name {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    top: 2px;
+    left: 13px;
+    width: 16px;
+    height: 16px;
+    @include img-retina('../img/user-name.png', '../img/user-name@2x.png', 16px, 16px);
+  }
+}
+
+.user-email {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    top: 3px;
+    left: 13px;
+    width: 16px;
+    height: 13px;
+    @include img-retina('../img/user-email.png', '../img/user-email@2x.png', 16px, 13px);
+  }
+}
+
+.user-password {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    top: 2px;
+    left: 13px;
+    width: 16px;
+    height: 17px;
+    @include img-retina('../img/user-password.png', '../img/user-password@2x.png', 16px, 17px);
+  }
+}
+
+.close-flyout {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 14px;
+  height: 14px;
+  @include img-retina('../img/close-flyout.png', '../img/close-flyout@2x.png', 14px, 14px);
+}
+
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 22px;
+  left: 19px;
+  width: 24px;
+  height: 15px;
+  cursor: pointer;
+  @include img-retina('../img/hamburger.png', '../img/hamburger@2x.png', 24px, 15px);
+}

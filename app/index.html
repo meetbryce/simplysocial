@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<!--[if IE 9]><html class="no-js ie9" lang="en-us" ng-app="simplySocial" ng-controller="simplySocialController" ng-class="{noscroll: state.showingCompose || state.showingLightbox, 'noscroll-flyout': state.showingFlyout}"><![endif]-->
+<html class="no-js" lang="en-us" ng-app="simplySocial" ng-controller="simplySocialController" ng-class="{noscroll: state.showingCompose || state.showingLightbox, 'noscroll-flyout': state.showingFlyout}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SimplySocial | Social networking simplified</title>
+    <meta name="description" content="Simplified social networking means: no events, no ads, no games, no fans, and no groups.">
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <style>
+        .ng-cloak { display: none; }
+        .loading.show { position: fixed; z-index: 100; padding: 10em; top: 0; right: 0; bottom: 0; left: 0; background-color: #fff; color: rgb(38, 39, 40); text-align: center; display: block !important; }
+        .loading.ng-cloak { display: block; }
+    </style>
+    <link rel="stylesheet" href="dist/css/style.min.css">
+    <script src="bower_components/modernizr/modernizr.js"></script>
+</head>
+
+<body>
+    <aside class="loading show ng-cloak">Loading...</aside>
+
+    <nav class="main-menu" ng-class="{'blur-modal': state.showingCompose, 'blur-flyout': state.showingFlyout, 'blur-lightbox': state.showingLightbox}">
+        <div class="container">
+            <div class="logo">
+                <a href="/#/"><img ng-src="dist/img/logo.png" width="137" height="25" alt="SimplySocial Logo" /></a>
+            </div>
+
+            <div class="nav-right pull-right">
+                <a href="javascript:void(0);" class="btn-new-message" ng-click="showCompose()"></a>
+
+                <form class="search-form" method="get">
+                    <label for="search-bar" class="sr-only">Search</label>
+                    <input type="text" id="search-bar" name="q" />
+                    <input type="submit" class="btn-search" value="Search" />
+                </form>
+
+                <div class="user-menu-wrapper">
+                    <img ng-src="{{ user.avatar }}" width="30" height="30" class="avatar" alt="{{ user.name }}" />
+                    <span class="caret"></span>
+                    <ul class="user-menu">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Followers</a></li>
+                        <li><a href="#">Following</a></li>
+                        <li><a href="#/settings">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <span class="btn-new-message-mobile" ng-click="showCompose()"></span>
+            <span class="hamburger" ng-click="toggleFlyout()"></span>
+        </div>
+    </nav>
+    <div class="flyout-wrapper" ng-show="state.showingFlyout">
+        <nav class="flyout-menu ng-cloak" ng-class="{active: state.showingFlyout}">
+            <div class="avatar-area">
+                <a href="javascript:void(0);" ng-click="closeFlyout()"><span class="close-flyout"></span></a>
+                <img ng-src="{{ user.avatar }}" width="60" height="60" class="avatar" alt="{{ user.name }}" />
+            </div>
+            <div class="menu-wrapper">
+                <form class="search-form" method="get">
+                    <label for="search-bar-flyout" class="sr-only">Search</label>
+                    <input type="text" id="search-bar-flyout" name="q" placeholder="Search..." />
+                </form>
+
+                <ul class="user-menu">
+                    <li><a href="/#/">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Followers</a></li>
+                    <li><a href="#">Following</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div ng-click="closeFlyout()" ng-class="{'blur-modal': state.showingCompose, 'blur-flyout': state.showingFlyout, 'blur-lightbox': state.showingLightbox}" ng-view></div>
+
+    <footer ng-class="{'blur-modal': state.showingCompose, 'blur-flyout': state.showingFlyout, 'blur-lightbox': state.showingLightbox}">
+        <nav>
+            <ul class="caps list-inline">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li>&copy; 2014-2015 SimplySocial</li>
+            </ul>
+        </nav>
+    </footer>
+
+    <aside class="modal-wrapper ng-cloak" ng-show="state.showingCompose">
+        <section class="modal">
+            <span class="close" ng-click="closeCompose()"></span>
+
+            <h3>Create new message</h3>
+
+            <form action="">
+                <label for="message-box" class="sr-only">Your message here...</label>
+                <textarea name="m" id="message-box" cols="30" rows="3"></textarea>
+
+                <p>
+                    <button type="button" class="btn btn-subtle"><span class="add-photo"></span>Add Photo</button>
+                    <button type="button" class="btn btn-subtle"><span class="add-video"></span>Add Video</button>
+                    <button type="submit" class="btn btn-success strong pull-right">Post</button>
+                </p>
+            </form>
+        </section>
+    </aside>
+
+    <aside class="lightbox-wrapper ng-cloak" ng-if="state.showingLightbox">
+        <div class="lightbox post" id="lightbox" ng-controller="ssPostController">
+            <span class="close" ng-click="closeLightbox()"></span>
+
+            <div class="media">
+                <img ng-src="{{ lightboxInfo.image }}" width="100%" alt="{{ info.post }}" ng-if="lightboxInfo.image" />
+                <img ng-src="{{ lightboxInfo.video.poster }}" width="100%" alt="{{ info.post }}" ng-if="lightboxInfo.video" />
+            </div>
+            <ul class="pull-right post-actions">
+                <li><a href="javascript:void(0);"><span class="reply-btn" ng-click="reply(lightboxInfo.id)"></span></a>
+                </li>
+                <li><a href="javascript:void(0);"><span class="like-btn"></span></a></li>
+                <li>{{ lightboxInfo.timestamp }}</li>
+            </ul>
+            <img ng-src="{{ lightboxInfo.user.avatar }}" width="40" height="40" alt="{{ lightboxInfo.user.name }}" class="pull-left avatar" />
+
+            <p class="name">{{ lightboxInfo.user.name }}</p>
+
+            <p class="content" ng-bind-html="lightboxInfo.post"></p>
+
+            <p class="comments-toggle" ng-if="lightboxInfo.comments">
+                <a href="javascript:void(0);" ng-show="!showingComments" ng-click="showComments()">Expand<span class="caret"></span></a>
+                <a href="javascript:void(0);" class="active" ng-show="showingComments" ng-click="hideComments()">Collapse<span class="caret"></span></a>
+            </p>
+
+            <div class="comments" ng-if="showingComments">
+                <div class="comment" ng-repeat="comment in lightboxInfo.comments">
+                    <ul class="pull-right post-actions">
+                        <li><a href="javascript:void(0);"><span class="reply-btn" ng-click="reply(info.id)"></span></a>
+                        </li>
+                        <li><a href="javascript:void(0);"><span class="like-btn"></span></a></li>
+                        <li>{{ comment.timestamp }}</li>
+                    </ul>
+                    <img ng-src="{{ comment.user.avatar }}" width="40" height="40" alt="{{ comment.user.name }}" class="pull-left avatar" />
+
+                    <p class="name">{{ comment.user.name }}</p>
+
+                    <p class="content" ng-bind-html="comment.post"></p>
+                </div>
+
+                <div class="comment-form">
+                    <form>
+                        <input type="text" placeholder="Reply..." />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <script src="dist/js/app.min.js"></script>
+
+    <script>
+        $(window).ready(function () {
+            $('.loading').remove();
+        })
+    </script>
+
+</body>
+
+</html>
+
+
+

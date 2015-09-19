@@ -1,0 +1,63 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.ng-cloak {
+  display: none;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.small {
+  font-size: 12px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-success {
+  color: $success;
+}
+
+.caps {
+  text-transform: uppercase;
+}
+
+.blur-modal, .blur-lightbox {
+  filter: blur(10px);
+}
+
+.list-inline {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  li { display: inline; }
+}
+
+html.noscroll {
+  overflow: hidden;
+  height: 100%;
+
+  body {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  body, .main-menu {
+    padding-right: 15px;
+  }
+}

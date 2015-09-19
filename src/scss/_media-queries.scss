@@ -1,0 +1,335 @@
+@media only screen and (max-width: 616px) {
+  body {
+    font-size: 14px;
+  }
+
+  main {
+    padding-bottom: 94px;
+  }
+
+  .container {
+    padding: 0;
+    max-width: 90%;
+  }
+
+  .switch-switch {
+    right: 13px;
+  }
+
+  .modal, .lightbox {
+    position: absolute;
+    margin: 0;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+
+    .media {
+      margin: -23px -18px 21px -64px;
+    }
+
+  }
+
+  .modal, .lightbox, .post-box {
+
+    .close {
+      top: -27px;
+      right: -8px;
+    }
+
+    .post-box-input {
+      margin: 12px 0 24px 0;
+      font-size: 16px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      margin-top: 14px;
+      padding: 9px 15px;
+      border: 1px solid white;
+      float: none;
+      font-size: 12px;
+    }
+
+    .btn-ghost {
+      border: 2px solid white;
+      font-size: 14px;
+    }
+  }
+
+  .post-box {
+    margin-top: -70px;
+  }
+
+  .modal {
+    height: auto;
+    max-width: 90%;
+
+    .btn-success {
+      border: 1px solid $success;
+    }
+  }
+
+  .comments {
+    margin: 20px -18px 0 -64px;
+    .comment {
+      padding: 16px 16px 0 64px;
+    }
+    .comment-form {
+      padding: 15px 14px 13px 16px;
+    }
+  }
+
+  .post-box {
+    width: 90%;
+  }
+
+  .feed-menu {
+    margin-top: -31px;
+    height: 31px;
+    font-size: 11px;
+
+    li {
+      margin: 0 6px;
+    }
+
+    a {
+      padding: 0 4px 12px 4px;
+    }
+  }
+
+  .post, .comment {
+    padding: 22px 18px 0 64px;
+
+    .name {
+      font-size: 15px;
+      margin: 0 0 6px 0;
+    }
+
+    .content {
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .avatar {
+      left: 13px;
+    }
+
+    .image-preview {
+      margin: 0 -18px 0 -64px;
+    }
+  }
+
+  .post.lightbox {
+    padding-bottom: 2px;
+  }
+
+  .post-actions li {
+    margin: 0 3px;
+  }
+
+  footer {
+    padding: 30px 0;
+
+    ul > li:last-child {
+      padding-top: 6px;
+      display: block;
+    }
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  .radio, .switch {
+    margin-right: 6px;
+  }
+
+  .switch-wrapper {
+    padding-left: 56px;
+    padding-right: 56px;
+    height: auto;
+
+    .switch {
+      margin-left: -56px;
+    }
+  }
+
+  h4 {
+    margin-bottom: 18px;
+  }
+
+  hr {
+    margin: 28px 0;
+  }
+
+  .switch {
+    top: 5px;
+    margin-right: 5px;
+    width: 28px;
+  }
+
+  .switch-wrapper {
+    height: 14px;
+  }
+
+  .switch-label {
+    border: 1px solid $light;
+    border-radius: 25px;
+  }
+
+  .switch-inner:before, .switch-inner:after {
+    height: 14px;
+    line-height: 14px;
+  }
+
+  .switch-inner:before {
+    padding-left: 10px;
+  }
+
+  .switch-inner:after {
+    padding-right: 10px;
+  }
+
+  .switch-switch {
+    width: 14px;
+    right: 12px;
+    border: 2px solid white;
+    border-radius: 50px;
+  }
+
+  .account-settings {
+    padding-left: 105px;
+
+    .stdin {
+      height: 35px;
+      font-size: 14px;
+      padding-left: 31px;
+    }
+
+    .avatar-settings {
+      margin-left: -105px;
+    }
+
+    .user-password a {
+      font-size: 11px;
+      float: right;
+      display: block;
+      margin: 2px 0 0 0;
+    }
+  }
+  .user-email::before {
+    top: 4px;
+  }
+  .user-name::before, .user-email::before, .user-password::before {
+    left: 8px;
+  }
+
+  .form-field {
+    margin-bottom: 12px;
+  }
+
+}
+
+@media only screen and (max-width: 560px) {
+
+  .container {
+    max-width: 95%;
+  }
+
+  .search-form {
+    margin: 0 14px 0 4px;
+
+    input[type=text] {
+      max-width: 100%;
+    }
+  }
+
+  .user-menu-wrapper .caret {
+    margin-left: 1px;
+  }
+
+  .main-menu {
+    height: 60px;
+    overflow-y: hidden;
+
+    .logo {
+      position: absolute;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    .nav-right {
+      display: none;
+      padding: 0;
+    }
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .btn-new-message-mobile {
+    display: block;
+    position: absolute;
+    top: 17px;
+    right: 16px;
+    width: 31px;
+    height: 26px;
+    @include img-retina('../img/new-message.png', '../img/new-message@2x.png', 31px, 26px);
+  }
+
+  .flyout-menu.active {
+    left: 0;
+  }
+
+  .flyout-wrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-top: 60px;
+    background-color: rgba($black, .8);
+  }
+
+  .blur-flyout {
+    filter: blur(10px);
+  }
+
+  .noscroll-flyout {
+    overflow: hidden;
+    height: 100%;
+
+    body {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    body, .main-menu {
+      padding-right: 15px;
+    }
+  }
+}
+
+
+@media only screen and (max-height: 400px) {
+  .flyout-menu {
+    // adjust padding on flyout elements to keep height of content < 320px
+    ul li {
+      padding: 8px 12px 8px 16px;
+    }
+
+    .search-form {
+      padding: 8px 16px;
+    }
+
+    .avatar-area {
+      padding: 8px;
+    }
+  }
+}

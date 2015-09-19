@@ -1,0 +1,41 @@
+<article class="post" id="{{ info.id }}">
+    <ul class="pull-right post-actions">
+        <li><a href="javascript:void(0);"><span class="reply-btn" ng-click="reply(info.id)"></span></a></li>
+        <li><a href="javascript:void(0);"><span class="like-btn"></span></a></li>
+        <li>{{ info.timestamp }}</li>
+    </ul>
+    <img ng-src="{{ info.user.avatar }}" width="40" height="40" alt="{{ info.user.name }}" class="pull-left avatar" />
+
+    <p class="name">{{ info.user.name }}</p>
+
+    <p class="content" ng-bind-html="info.post"></p>
+
+    <p class="comments-toggle" ng-if="info.comments">
+        <a href="javascript:void(0);" ng-show="!showingComments" ng-click="showComments()">Expand<span class="caret"></span></a>
+        <a href="javascript:void(0);" class="active" ng-show="showingComments" ng-click="hideComments()">Collapse<span class="caret"></span></a>
+    </p>
+
+    <div class="comments" ng-if="showingComments">
+        <div class="comment" ng-repeat="comment in info.comments">
+            <ul class="pull-right post-actions">
+                <li><a href="javascript:void(0);"><span class="reply-btn" ng-click="reply(info.id)"></span></a></li>
+                <li><a href="javascript:void(0);"><span class="like-btn"></span></a></li>
+                <li>{{ comment.timestamp }}</li>
+            </ul>
+            <img ng-src="{{ comment.user.avatar }}" width="40" height="40" alt="{{ comment.user.name }}" class="pull-left avatar" />
+
+            <p class="name">{{ comment.user.name }}</p>
+
+            <p class="content" ng-bind-html="comment.post"></p>
+        </div>
+
+        <div class="comment-form">
+            <form>
+                <input type="text" placeholder="Reply..." />
+            </form>
+        </div>
+    </div>
+
+    <a href="javascript:void(0);" class="image-preview" ng-click="$parent.$parent.$parent.openLightbox(info)" ng-if="info.image"><img ng-src="{{ info.image }}" width="100%" alt="{{ info.post }}" /></a>
+    <a href="javascript:void(0);" class="image-preview" ng-click="$parent.$parent.$parent.openLightbox(info)" ng-if="info.video"><img ng-src="{{ info.video.poster }}" width="100%" alt="{{ info.post }}" /></a>
+</article>
