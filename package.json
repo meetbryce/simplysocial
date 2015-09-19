@@ -1,6 +1,6 @@
 {
   "name": "simplysocial",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Social networking simplified",
   "repository": "https://github.com/meetbryce/simplysocial.git",
   "main": "./app/index.html",
