@@ -1,9 +1,9 @@
 {
-  "name": "frontend-boilerplate",
-  "version": "1.1.1",
-  "description": "My starting point for all new frontend projects. Out of the box: Gulp (SCSS, JS, Image compression, livereload), Bootstrap, jQuery & Modernizr",
-  "repository": "https://github.com/meetbryce/frontend-boilerplate",
-  "main": "index.js",
+  "name": "simplysocial",
+  "version": "0.0.0",
+  "description": "Social networking simplified",
+  "repository": "https://github.com/meetbryce/simplysocial.git",
+  "main": "./app/index.html",
   "scripts": {
     "start": "gulp"
   },
@@ -21,7 +21,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.5.2",
-    "gulp-sprite-generator": "^0.2.3",
     "gulp-uglify": "^1.2.0",
     "imagemin-pngquant": "^4.1.2",
     "shrinkwrap": "^0.4.0"
